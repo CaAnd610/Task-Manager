@@ -3,7 +3,7 @@ const db = require('../DB/db');
 const jwt = require('jsonwebtoken');
 
 exports.signupUser = (req, res) => {
-    const { username, email, password } = req.body;
+    const { username, email, password } = req.validatedData;
 
     //hash the password with bcrypt
     const saltRounds = 10;

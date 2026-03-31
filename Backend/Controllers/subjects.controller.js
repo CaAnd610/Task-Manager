@@ -1,7 +1,7 @@
 const db = require('../DB/db');
 
 exports.createSubject = (req, res) => {
-    const { name } = req.body;
+    const { name } = req.validatedData;
     const userId = req.user.id;
 
      db.all('SELECT * FROM subjects WHERE subject_name = ? AND user_id = ?',
@@ -73,7 +73,7 @@ exports.getSubjectById = (req, res) => {
 exports.updateSubject = (req, res) => {
     const userId = req.user.id;
     const subjectId = req.params.id;
-    const { name } = req.body;
+    const { name } = req.validatedData;
 
     db.get('SELECT * FROM subjects WHERE id = ? AND user_id = ?',
         [subjectId, userId],
