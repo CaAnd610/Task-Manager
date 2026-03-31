@@ -9,6 +9,10 @@ const eventSchema = require('../Schemas/event.schema');
 router.use(verifyToken);
 
 router.post('/', validate(eventSchema), eventsController.createEvent);
+router.get('/', eventsController.getEvents);
+router.get('/:id', eventsController.getEventById);
+router.put('/:id', validate(eventSchema), eventsController.updateEvent);
+router.delete('/:id', eventsController.deleteEvent);
 
 
 module.exports = router;
