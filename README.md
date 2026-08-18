@@ -106,9 +106,11 @@ body
     "subject_id" : id,
     "title" : "",
     "event_type" : "homework / exam",
-    "due_date" : "date",
+    "due_date" : "YYYY-MM-DD ",
+    "due_time" : "YYYY-MM-DD HH:MM:SS" (optional),
+    "notes" : string (optional),
     "event_status" : 0 - 1,
-    "created_at" : ""
+    "created_at" : "YYYY-MM-DD HH:MM:SS"
 }
 Response:
 400 { errors in Event middleware }
