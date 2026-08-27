@@ -4,25 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
 </head>
 <body>
     <main>
         <section class="form-section">
             <header class="login_header">
                 <img src="assets/images/Astra.png" alt="Imagen" class="form-img">
-                <h1>Task Manager</h1>
+                <h1 class="login-title">Task Manager</h1>
             </header>
-            <form action="" class="login_form">
-                <h2 class="login_form__tittle">Inicia Sesión en tu cuenta</h2>
-                <input type="text" class="login_form__user" placeholder="Usuario" required>
-                <input type="password" class="login_form__password" placeholder="Contraseña" required>
-                <button type="submit" class="login_form__button">Iniciar Sesión</button>
-                <div class="login_form__line">
-                    <span class="login_form__line-text">Ó Creala</span>
+            <form action="" class="login-form">
+                <h2 class="login-form__tittle">Inicia Sesión en tu cuenta</h2>
+                <input type="text" class="input login-form__user" placeholder="Usuario" required>
+                <input type="password" class="input login-form__password" placeholder="Contraseña" required>
+                <button type="submit" class="btn login-form__button">Iniciar Sesión</button>
+                <div class="login-form__line">
+                    <span class="login-form__line-text">Ó Creala</span>
                 </div>
-                <button type="button" class="login_form__signup_button"><a href="Pages/signup.html">Crea una cuenta</a></button>
+                <button type="button" class="btn login-form__signup_button"><a href="Pages/signup.html">Crea una cuenta</a></button>
             </form>
-            <span class="form_footer">Bienvenido a <b>Astra</b></span>
+            <span class="form-footer">Bienvenido a <b>Astra</b></span>
             <img src="assets/icons/Star 1.png" alt="Estrella decorativa" class="form_star">
         </section>
     </main>

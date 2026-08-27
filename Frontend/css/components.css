@@ -1,0 +1,37 @@
+@import "base.css";
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 20px;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+    transition: 0.2s ease;
+}
+
+.input {
+    display: block;
+    width: 100%;
+
+    padding: 10px 5px;
+
+    outline: none;
+    border-radius: 10px;
+}
+
+::placeholder {
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    color: #aaa;
+}
