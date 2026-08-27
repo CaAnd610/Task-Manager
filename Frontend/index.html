@@ -21,7 +21,15 @@
             <form action="" class="login-form">
                 <h2 class="login-form__tittle">Inicia Sesión en tu cuenta</h2>
                 <input type="text" class="input login-form__user" placeholder="Usuario" required>
-                <input type="password" class="input login-form__password" placeholder="Contraseña" required>
+                <div class="login-form__password-container">
+                    <input type="password" class="input login-form__password" placeholder="Contraseña" required>
+                    <button  type = "button" class="login-form__show-password-button" hide = "false">
+                        <svg src="./assets/icons/showed-eye.svg" class="login-form__show-password-button-svg"></svg>
+                    </button>
+                    <button type = "button" class="login-form__hide-password-button" hide = "true">
+                        <svg src="./assets/icons/closed-eye.svg" class="login-form__hide-password-button-svg"></svg>
+                    </button>
+                </div>
                 <button type="submit" class="btn login-form__button">Iniciar Sesión</button>
                 <div class="login-form__line">
                     <span class="login-form__line-text">Ó Creala</span>

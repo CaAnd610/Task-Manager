@@ -51,6 +51,21 @@ main {
 
 }
 
-.login-form__user, .login-form__password:focus {
+.login-form__user:focus, .login-form__password:focus {
+    outline: 2px solid var(--blue) !important;
+}
+
+.login-form__show-password-button, .login-form__hide-password-button {
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border:none;
+}
+
+.login-form__show-password-button-svg, .login-form__hide-password-button-svg {
+    width: 24px;
+    height: 24px;
+    display: block;
+
     border: 2px solid var(--blue);
 }
