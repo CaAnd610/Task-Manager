@@ -27,6 +27,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 
     width: 50%;
     margin: 30px;
@@ -43,29 +44,141 @@ main {
     margin-bottom: 20px;
 }
 
-.login-form__user, .login-form__password {
+.login-form__user {
     width: 50%;
     margin-bottom: 20px;
 
     border: 1px solid var(--light-blue);
-
 }
 
-.login-form__user:focus, .login-form__password:focus {
-    outline: 2px solid var(--blue) !important;
+.login-form__user:focus {
+    outline: 2px solid var(--blue);
+}
+
+.login-form__password-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+.login-form__password {
+    border: 1px solid var(--light-blue);
+}
+
+.login-form__password:focus {
+    outline: 2px solid var(--blue);
 }
 
 .login-form__show-password-button, .login-form__hide-password-button {
+    position: absolute;
+    right: 0;
+
     width: 40px;
     height: 40px;
     background: transparent;
     border:none;
 }
 
-.login-form__show-password-button-svg, .login-form__hide-password-button-svg {
-    width: 24px;
-    height: 24px;
+.login-form__show-password-button-img, .login-form__hide-password-button-img {
+    width: 30px;
+    height: 30px;
     display: block;
 
-    border: 2px solid var(--blue);
+    :hover {
+        cursor: pointer;
+    }
+}
+
+.hide {
+    display: none;
+}
+
+.login-form__button {
+    font-family: "Ledger", serif;
+    font-weight: 300;
+    font-size: 18px;
+    font-style: normal;
+
+    width: 50%;
+    height: 30px;
+
+    background-color: #111;
+    color: #fff;
+}
+
+.login-form__button:hover {
+    background-color: var(--dark-blue);
+    cursor: pointer;
+}
+
+.login-form__button:active {
+    background-color: var(--blue);
+}
+
+.login-form__line {
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    width: 50%;
+    margin: 20px 0;
+}
+
+
+.login-form__line::before, .login-form__line::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #aaa;
+}
+
+.login-form__line::before {
+    margin-right: 10px;
+}
+
+.login-form__line::after {
+    margin-left: 10px;
+}
+
+.login-form__line-text {
+    font-family: "Ledger", serif;
+    font-weight: 300;
+    font-size: 18px;
+    font-style: normal;
+
+    color: #777;
+}
+
+.login-form__signup-button {
+    width: 50%;
+    height: 30px;
+
+    background-color: #eee;
+
+    a {
+        text-decoration: none;
+
+        font-family: "Ledger", serif;
+        font-weight: 300;
+        font-size: 18px;
+        font-style: normal;
+        color: #000;
+    }
+}
+
+.form-footer {
+    color: #777;
+}
+
+.form_star {
+    position: absolute;
+
+    bottom: 0;
+    right: 0;
+
+    right: -50px;
+    bottom: -30px;
 }

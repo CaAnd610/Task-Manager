@@ -23,22 +23,24 @@
                 <input type="text" class="input login-form__user" placeholder="Usuario" required>
                 <div class="login-form__password-container">
                     <input type="password" class="input login-form__password" placeholder="Contraseña" required>
-                    <button  type = "button" class="login-form__show-password-button" hide = "false">
-                        <svg src="./assets/icons/showed-eye.svg" class="login-form__show-password-button-svg"></svg>
+                    <button  type = "button" class="btn login-form__show-password-button">
+                        <img src="./assets/icons/showed-eye.svg" alt="Mostrar contraseña" class="login-form__show-password-button-img">
                     </button>
-                    <button type = "button" class="login-form__hide-password-button" hide = "true">
-                        <svg src="./assets/icons/closed-eye.svg" class="login-form__hide-password-button-svg"></svg>
+                    <button type = "button" class="btn login-form__hide-password-button hide">
+                        <img src="./assets/icons/closed-eye.svg" alt="Ocultar contraseña" class="login-form__hide-password-button-img">
                     </button>
                 </div>
                 <button type="submit" class="btn login-form__button">Iniciar Sesión</button>
                 <div class="login-form__line">
                     <span class="login-form__line-text">Ó Creala</span>
                 </div>
-                <button type="button" class="btn login-form__signup_button"><a href="Pages/signup.html">Crea una cuenta</a></button>
+                <button type="button" class="btn login-form__signup-button"><a href="Pages/signup.html">Crea una cuenta</a></button>
+                <img src="assets/icons/Star 1.png" alt="Estrella decorativa" class="form_star">
             </form>
             <span class="form-footer">Bienvenido a <b>Astra</b></span>
-            <img src="assets/icons/Star 1.png" alt="Estrella decorativa" class="form_star">
         </section>
     </main>
+
+    <script src="./js/login.js"></script>
 </body>
 </html>
