@@ -12,15 +12,22 @@
 </head>
 </head>
 <body>
+    <div class="line decoration-line-1"></div>
+    <div class="line decoration-line-2"></div>
+    <div class="line decoration-line-3"></div>
+    <div class="line decoration-line-4"></div>
+    
     <main>
         <section class="form-section">
             <header class="login_header">
                 <img src="assets/images/Astra.png" alt="Imagen" class="form-img">
                 <h1 class="login-title">Task Manager</h1>
             </header>
-            <form action="" class="login-form">
+            <form class="login-form">
                 <h2 class="login-form__tittle">Inicia Sesión en tu cuenta</h2>
-                <input type="text" class="input login-form__user" placeholder="Usuario" required>
+                <div class="login-form__email-container">
+                    <input type="email" class="input login-form__user" placeholder="Email" required>
+                </div>
                 <div class="login-form__password-container">
                     <input type="password" class="input login-form__password" placeholder="Contraseña" required>
                     <button  type = "button" class="btn login-form__show-password-button">
@@ -30,6 +37,7 @@
                         <img src="./assets/icons/closed-eye.svg" alt="Ocultar contraseña" class="login-form__hide-password-button-img">
                     </button>
                 </div>
+                <div class="password-error-container"></div>
                 <button type="submit" class="btn login-form__button">Iniciar Sesión</button>
                 <div class="login-form__line">
                     <span class="login-form__line-text">Ó Creala</span>
@@ -41,6 +49,6 @@
         </section>
     </main>
 
-    <script src="./js/login.js"></script>
+    <script type = "module" src="./js/Pages/login.js"></script>
 </body>
 </html>

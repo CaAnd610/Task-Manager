@@ -1,5 +1,10 @@
 @import "base.css";
 
+body {
+    position: relative;
+    height: 100vh;
+}
+
 main {
     display: flex;
     justify-content: center;
@@ -44,10 +49,18 @@ main {
     margin-bottom: 20px;
 }
 
-.login-form__user {
+.login-form__email-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
     width: 50%;
     margin-bottom: 20px;
+}
 
+.login-form__user {
     border: 1px solid var(--light-blue);
 }
 
@@ -55,8 +68,20 @@ main {
     outline: 2px solid var(--blue);
 }
 
+.input-error {
+    font-family: "Ledger", serif;
+    font-weight: 400;
+    font-size: 18px;
+
+    margin-top: 10px;
+    text-align: left;
+
+    color: #e03232da;
+}
+
 .login-form__password-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     position: relative;
@@ -169,6 +194,14 @@ main {
     }
 }
 
+.login-form__signup-button:hover {
+    background-color: var(--light-blue);
+}
+
+.login-form__signup-button:active {
+    background-color: var(--blue);
+}
+
 .form-footer {
     color: #777;
 }
@@ -181,4 +214,42 @@ main {
 
     right: -50px;
     bottom: -30px;
+}
+
+.line {
+    position: absolute;
+}
+
+.decoration-line-1 {
+    width: 80px;
+    height: 100%;
+    left: 0;
+
+    background-color: var(--dark-blue);
+}
+
+.decoration-line-2 {
+    width: 80px;
+    height: 100%;
+    left: 80px;
+
+    background-color: #1d2e4ad8;
+}
+
+.decoration-line-3 {
+    width: 80px;
+    height: 100%;
+    right: 0;
+    top: 0;
+
+    background-color: var(--blue);
+}
+
+.decoration-line-4 {
+    width: 20px;
+    height: 100%;
+    right: 80px;
+    top: 0;
+
+    background-color: var(--light-blue);
 }
