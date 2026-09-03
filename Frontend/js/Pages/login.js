@@ -30,6 +30,19 @@ sendButton.addEventListener("click", (e) => {
     const isEmailValid = utils.validateEmail(email);
     const isPasswordValid = utils.validatePassword(password);
 
+    if (!email){
+        utils.showError(emailInput, "Correo electrónico requerido");
+    } else {
+        utils.clearError(emailInput);
+    }
+
+    if (!password){
+        utils.showError(passwordInput, "Contraseña requerida");
+    } else {
+        utils.clearError(passwordInput);
+    }
+
+
     if (!isEmailValid) {
         utils.showError(emailInput, "Correo electrónico inválido");
     } else {
