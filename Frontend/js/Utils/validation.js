@@ -2,33 +2,21 @@
 export const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    return emailRegex.test(email);
+    if (!email) {
+        return [false, "Correo electrónico requerido"];
+    } else if (!emailRegex.test(email)) {
+        return [false, "Correo electrónico inválido"];
+    } else {
+        return [true, ""];
+    }
 };
 
 export const validatePassword = (password) => {
-    
-    return password.length >= 8;
-}
-
-export const showError = (input, message) => {
-    const container = input.parentElement;
-
-    if (container.querySelector(".input-error")){
-        return;
-    }
-
-    const error = document.createElement("span");
-
-    error.classList.add("input-error");
-    error.textContent = message;
-
-    container.appendChild(error);
-}
-
-export const clearError = (input) => {
-    const error = input.parentElement.querySelector(".input-error");
-
-    if (error) {
-        error.remove();
+    if (!password) {
+        return [false, "Contraseña requerida"];   
+    } else if (password.length < 8) {
+        return [false, "La contraseña debe tener al menos 8 caracteres"];
+    } else {
+        return [true, ""];
     }
 }

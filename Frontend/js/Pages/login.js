@@ -1,4 +1,5 @@
-import * as utils from "../Utils/validation.js";
+import * as validation from "../Utils/validation.js";
+import * as domUtils from "../Utils/dom.js";
 
 const passwordInput = document.querySelector(".login-form__password");
 const viewPasswordButton = document.querySelector(".login-form__show-password-button");
@@ -27,33 +28,21 @@ sendButton.addEventListener("click", (e) => {
     const email = emailInput.value;
     const password = passwordInput.value;
 
-    const isEmailValid = utils.validateEmail(email);
-    const isPasswordValid = utils.validatePassword(password);
+    const emailValidation = validation.validateEmail(email);
+    const passwordValidation = validation.validatePassword(password);
 
-    if (!email){
-        utils.showError(emailInput, "Correo electrónico requerido");
+    if (!emailValidation[0]) {
+        domUtils.showError(emailInput, emailValidation[1]);
     } else {
-        utils.clearError(emailInput);
-    }
-
-    if (!password){
-        utils.showError(passwordInput, "Contraseña requerida");
-    } else {
-        utils.clearError(passwordInput);
-    }
-
-
-    if (!isEmailValid) {
-        utils.showError(emailInput, "Correo electrónico inválido");
-    } else {
-        utils.clearError(emailInput);
+        domUtils.clearError(emailInput);
         console.log(email, password);
     }
 
-    if (!isPasswordValid) {
-        utils.showError(passwordInput, "La contraseña debe tener al menos 8 caracteres");
+    if (!passwordValidation[0]) {
+        domUtils.showError(passwordInput, passwordValidation[1]);
     } else {
-        utils.clearError(passwordInput);
+        domUtils.clearError(passwordInput);
     }
+
 
 })
