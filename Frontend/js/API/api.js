@@ -12,7 +12,7 @@ export const request = async (endpoint, options = {}) => {
     const data = await response.json();
 
     if (!response.ok) {
-        throw new Error(data.message || "Error en la solicitud");
+        throw new Error(data.error);
     }
 
     return data;

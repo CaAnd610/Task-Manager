@@ -1,20 +1,20 @@
-export const showError = (input, message) => {
-    const container = input.parentElement;
+export const showError = (element, message) => {
+    const container = element.parentElement;
 
-    if (container.querySelector(".input-error")){
+    if (container.querySelector(".error")){
         return;
     }
 
     const error = document.createElement("span");
 
-    error.classList.add("input-error");
+    error.classList.add("error");
     error.textContent = message;
 
     container.appendChild(error);
 }
 
-export const clearError = (input) => {
-    const error = input.parentElement.querySelector(".input-error");
+export const clearError = (element) => {
+    const error = element.parentElement.querySelector(".error");
 
     if (error) {
         error.remove();

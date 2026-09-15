@@ -1,9 +1,11 @@
 import * as validation from "../Utils/validation.js";
 import * as domUtils from "../Utils/dom.js";
+import { login } from "../API/auth.api.js";
 
 const passwordInput = document.querySelector(".login-form__password");
 const viewPasswordButton = document.querySelector(".login-form__show-password-button");
 const hidePasswordButton = document.querySelector(".login-form__hide-password-button");
+const formError = document.querySelector(".form_error-text");
 
 const sendButton = document.querySelector(".login-form__button");
 const emailInput = document.querySelector(".login-form__user");
@@ -22,7 +24,8 @@ hidePasswordButton.addEventListener("click", () => {
     viewPasswordButton.classList.remove("hide");
 });
 
-sendButton.addEventListener("click", (e) => {
+sendButton.addEventListener("click", async (e) => {
+
     e.preventDefault();
 
     const email = emailInput.value;
@@ -33,16 +36,28 @@ sendButton.addEventListener("click", (e) => {
 
     if (!emailValidation[0]) {
         domUtils.showError(emailInput, emailValidation[1]);
+        domUtils.clearError(formError);
     } else {
         domUtils.clearError(emailInput);
-        console.log(email, password);
     }
 
     if (!passwordValidation[0]) {
         domUtils.showError(passwordInput, passwordValidation[1]);
+        domUtils.clearError(formError);
     } else {
         domUtils.clearError(passwordInput);
     }
 
+    if (emailValidation[0] && passwordValidation[0]) {
+        try {
+            const response = await login(email, password);
 
+            console.log("Login successful:", response);
+            domUtils.clearError(formError);
+        } catch (error) {
+            console.error(error);
+
+            domUtils.showError(formError, error.message);
+        }
+    }
 })
