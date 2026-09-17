@@ -49,13 +49,17 @@ sendButton.addEventListener("click", async (e) => {
     }
 
     if (emailValidation[0] && passwordValidation[0]) {
+
+        console.log("validando");
+
         try {
             const response = await login(email, password);
 
             console.log("Login successful:", response);
             domUtils.clearError(formError);
         } catch (error) {
-            console.error(error);
+            domUtils.clearError(formError);
+            console.log("error: ", error);
 
             domUtils.showError(formError, error.message);
         }
