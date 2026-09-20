@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/signup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <div class="decoration-line-1"></div>
+    <div class="decoration-line-2"></div>
+    <div class="circle-1"></div>
+    <div class="circle-3"></div>
+    <div class="circle-2"></div>
+    <div class="circle-4"></div>
+    <main>
+        <section class="form-section">
+            <header class="signup_header">
+                <img src="../assets/images/Astra.png" alt="Imagen" class="form-img">
+                <h1 class="signup-title">Task Manager</h1>
+            </header>
+            <form class="signup-form">
+                <h2 class="signup-form__tittle">Crea tu cuenta</h2>
+                <div class="signup-form__input-spaces">
+                    <div class="signup-form__username-container">
+                        <input type="text" class="input signup-form__username" placeholder = "Nombre de usuario" required>
+                    </div>
+                    <div class="signup-form__password-container">
+                        <input type="password" class="input signup-form__password" placeholder="Crea tu contraseña" required>
+                        <button  type = "button" class="btn signup-form__show-password-button">
+                            <img src="../assets/icons/showed-eye.svg" alt="Mostrar contraseña" class="signup-form__show-password-button-img">
+                        </button>
+                        <button type = "button" class="btn signup-form__hide-password-button hide">
+                            <img src="../assets/icons/closed-eye.svg" alt="Ocultar contraseña" class="signup-form__hide-password-button-img">
+                        </button>
+                    </div>
+                    <div class="signup-form__email-container">
+                        <input type="email" class="input signup-form__email" placeholder="Email" required>
+                    </div>
+                    <div class="signup-form__confirm-password-container">
+                        <input type="password" class="input signup-form__confirm-password" placeholder="Confirma tu contraseña" required>
+                        <button  type = "button" class="btn signup-form__show-password-button">
+                            <img src="../assets/icons/showed-eye.svg" alt="Mostrar contraseña" class="signup-form__show-password-button-img">
+                        </button>
+                        <button type = "button" class="btn signup-form__hide-password-button hide">
+                            <img src="../assets/icons/closed-eye.svg" alt="Ocultar contraseña" class="signup-form__hide-password-button-img">
+                        </button>
+                    </div>
+                </div>
+                <div class="form_error-container">
+                    <span class="form_error-text"></span>
+                </div>
+                <button type="submit" class="btn signup-form__button">Crear</button>
+            </form>
+            <span class="form-footer">Bienvenido a <b>Astra</b></span>
+        </section>
+    </main>
+    <script src="../js/Pages/signup.js" type="module"></script>
+</body>
+</html>

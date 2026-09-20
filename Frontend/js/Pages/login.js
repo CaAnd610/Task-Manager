@@ -1,6 +1,7 @@
 import * as validation from "../Utils/validation.js";
 import * as domUtils from "../Utils/dom.js";
 import { login } from "../API/auth.api.js";
+import { saveToken } from "../Auth/auth.js";
 
 const passwordInput = document.querySelector(".login-form__password");
 const viewPasswordButton = document.querySelector(".login-form__show-password-button");
@@ -50,13 +51,13 @@ sendButton.addEventListener("click", async (e) => {
 
     if (emailValidation[0] && passwordValidation[0]) {
 
-        console.log("validando");
-
         try {
             const response = await login(email, password);
-
-            console.log("Login successful:", response);
             domUtils.clearError(formError);
+
+            saveToken(response.token);
+            
+            console.log(response);
         } catch (error) {
             domUtils.clearError(formError);
             console.log("error: ", error);
