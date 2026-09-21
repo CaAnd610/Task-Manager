@@ -20,3 +20,9 @@ export const validatePassword = (password) => {
         return [true, ""];
     }
 }
+
+export const validateUsername = (username) => {
+    if (!username) {
+        return
+    }
+}

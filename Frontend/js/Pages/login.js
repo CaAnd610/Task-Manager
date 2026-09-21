@@ -7,8 +7,7 @@ const passwordInput = document.querySelector(".login-form__password");
 const viewPasswordButton = document.querySelector(".login-form__show-password-button");
 const hidePasswordButton = document.querySelector(".login-form__hide-password-button");
 const formError = document.querySelector(".form_error-text");
-
-const sendButton = document.querySelector(".login-form__button");
+const loginButton = document.querySelector(".login-form__button");
 const emailInput = document.querySelector(".login-form__user");
 
 viewPasswordButton.addEventListener("click", () =>{
@@ -25,7 +24,7 @@ hidePasswordButton.addEventListener("click", () => {
     viewPasswordButton.classList.remove("hide");
 });
 
-sendButton.addEventListener("click", async (e) => {
+loginButton.addEventListener("click", async (e) => {
 
     e.preventDefault();
 
