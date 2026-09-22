@@ -1,7 +1,7 @@
 import * as dom from "../Utils/dom.js";
 import * as validation from "../Utils/validation.js";
 
-const usernameInput = document.querySelector(".sigup-form__username");
+const usernameInput = document.querySelector(".signup-form__username");
 const emailInput = document.querySelector(".signup-form__email");
 const passwordInput = document.querySelector(".signup-form__password");
 const confirmPasswordInput = document.querySelector(".signup-form__confirm-password");
@@ -10,6 +10,7 @@ const viewPasswordButtons = document.querySelectorAll(".signup-form__show-passwo
 const hidePasswordButtons = document.querySelectorAll(".signup-form__hide-password-button");
 
 const signupButton = document.querySelector(".signup-form__button");
+const errorElement = document.querySelector(".form__error-text");
 
 viewPasswordButtons.forEach((btn) => {
     btn.addEventListener("click", () =>{
@@ -43,5 +44,27 @@ signupButton.addEventListener("click", async (e) => {
     const emailValidation = validation.validateEmail(email);
     const passwordValidation = validation.validatePassword(password);
 
-    
-})
+    if (!usernameValidation[0]) {
+        dom.clearError(errorElement);
+        dom.showError(errorElement, usernameValidation[1]);
+        console.log("Error en el usuario");
+    } else {
+        dom.clearError(errorElement);
+    }
+
+    if (!emailValidation[0]) {
+        dom.clearError(errorElement);
+        dom.showError(errorElement, emailValidation[1]);
+        console.log("Error en el email");
+    } else {
+        dom.clearError(errorElement);
+    }
+
+/*     if (!passwordValidation[0]) {
+        dom.showError(errorElement, passwordValidation[1]);
+        dom.clearError(errorElement);
+        console.log("Error en el contraseña");
+    } else {
+        dom.clearError(errorElement);
+    } */
+});

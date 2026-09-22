@@ -270,7 +270,7 @@ main {
     left: -150px;
 }
 
-.form_error-container {
+.form__error-container {
     display: flex;
     justify-content: center;
     align-items: center;

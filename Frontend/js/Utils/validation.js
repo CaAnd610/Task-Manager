@@ -14,15 +14,19 @@ export const validateEmail = (email) => {
 export const validatePassword = (password) => {
     if (!password) {
         return [false, "Contraseña requerida"];   
-    } /* else if (password.length < 8) {
+    } else if (password.length < 8) {
         return [false, "La contraseña debe tener al menos 8 caracteres"];
-    } */ else {
+    } else {
         return [true, ""];
     }
 }
 
 export const validateUsername = (username) => {
     if (!username) {
-        return
+        return [false, "Nombre de usuario requerido"];
+    } else if (username.length < 5) {
+        return [false, "El nombre de usuario debe tener mínimo 5 caracteres"];
+    } else {
+        return [true, ""];
     }
 }
