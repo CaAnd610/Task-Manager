@@ -49,16 +49,15 @@ loginButton.addEventListener("click", async (e) => {
     }
 
     if (emailValidation[0] && passwordValidation[0]) {
+        domUtils.clearError(formError);
 
         try {
             const response = await login(email, password);
-            domUtils.clearError(formError);
 
             saveToken(response.token);
             
             console.log(response);
         } catch (error) {
-            domUtils.clearError(formError);
             console.log("error: ", error);
 
             domUtils.showError(formError, error.message);

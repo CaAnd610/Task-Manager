@@ -1,5 +1,8 @@
+console.log("cargando");
+
 import * as dom from "../Utils/dom.js";
 import * as validation from "../Utils/validation.js";
+import { signup } from "../API/auth.api.js";
 
 const usernameInput = document.querySelector(".signup-form__username");
 const emailInput = document.querySelector(".signup-form__email");
@@ -33,8 +36,8 @@ hidePasswordButtons.forEach((btn) => {
 })
 
 signupButton.addEventListener("click", async (e) => {
-    e.preventDefault;
-
+    e.preventDefault();
+    console.log("click");
     const username = usernameInput.value;
     const email = emailInput.value;
     const password = passwordInput.value;
@@ -47,7 +50,7 @@ signupButton.addEventListener("click", async (e) => {
     if (!usernameValidation[0]) {
         dom.clearError(errorElement);
         dom.showError(errorElement, usernameValidation[1]);
-        console.log("Error en el usuario");
+        return;
     } else {
         dom.clearError(errorElement);
     }
@@ -55,16 +58,35 @@ signupButton.addEventListener("click", async (e) => {
     if (!emailValidation[0]) {
         dom.clearError(errorElement);
         dom.showError(errorElement, emailValidation[1]);
-        console.log("Error en el email");
+        return;
     } else {
         dom.clearError(errorElement);
     }
 
-/*     if (!passwordValidation[0]) {
-        dom.showError(errorElement, passwordValidation[1]);
+    if (!passwordValidation[0]) {
         dom.clearError(errorElement);
-        console.log("Error en el contraseña");
+        dom.showError(errorElement, passwordValidation[1]);
+        return;
     } else {
         dom.clearError(errorElement);
-    } */
+    }
+
+    if (password === passwordConfirmation){
+        dom.clearError(errorElement);
+    } else {
+        dom.clearError(errorElement);
+        dom.showError(errorElement, "Las contraseñas no coinciden");
+        return;
+    }
+
+    try {
+        console.log("antes signup");
+        const response = await signup(username, email, password);
+        console.log("despues signup");
+
+        console.log(response);
+        console.log("terminé");
+    } catch (error) {
+        console.log(error);
+    }
 });

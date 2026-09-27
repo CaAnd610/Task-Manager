@@ -9,3 +9,14 @@ export const login = async (email, password) => {
         }
     });
 }
+
+export const signup = async (username, email, password) => {
+    return await request("/auth/signup", {
+        method: "POST",
+        body: {
+            username : username,
+            email : email,
+            password : password
+        }
+    });
+}

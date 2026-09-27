@@ -5,15 +5,22 @@ const jwt = require('jsonwebtoken');
 exports.signupUser = (req, res) => {
     const { username, email, password } = req.validatedData;
 
-    //hash the password with bcrypt
-    const saltRounds = 10;
-    bcrypt.hash(password, saltRounds, (err, hash) => {
+    db.get('SELECT * FROM users WHERE email = ?', [email], (err, row) => {
+        if (err) {
+            return res.status(500).json({error : err.message});
+        }
+
+        if (row) {
+            return res.status(409).json({error : "Email ya vinculado a una cuenta"});
+        }
+        
+        const saltRounds = 10;
+        bcrypt.hash(password, saltRounds, (err, hash) => {
 
         if (err) {
             return res.status(500).json({error : err.message});
         }
 
-        //store user in the database
         db.run('INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)',
             [username, email, hash],
 
@@ -26,6 +33,8 @@ exports.signupUser = (req, res) => {
             }
         );
     });
+    })
+
 }
 
 exports.loginUser = (req, res) => {
@@ -38,17 +47,16 @@ exports.loginUser = (req, res) => {
         }
 
         if (!row) {
-            return res.status(404).json({ error : 'User not found'});
+            return res.status(404).json({ error : 'Usuario no encontrado'});
         }
 
-        //compare password with hashed password
         bcrypt.compare(password, row.password_hash, (err, result) =>{
             if (err){
                 return res.status(500).json({ error : err.message});
             }
 
             if (!result) {
-                return res.status(401).json({ error : 'Invalid password'});
+                return res.status(401).json({ error : 'Contraseña incorrecta'});
             }
 
             const token = jwt.sign(
