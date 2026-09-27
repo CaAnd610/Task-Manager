@@ -1,5 +1,3 @@
-console.log("cargando");
-
 import * as dom from "../Utils/dom.js";
 import * as validation from "../Utils/validation.js";
 import { signup } from "../API/auth.api.js";
@@ -37,7 +35,7 @@ hidePasswordButtons.forEach((btn) => {
 
 signupButton.addEventListener("click", async (e) => {
     e.preventDefault();
-    console.log("click");
+
     const username = usernameInput.value;
     const email = emailInput.value;
     const password = passwordInput.value;
@@ -80,13 +78,13 @@ signupButton.addEventListener("click", async (e) => {
     }
 
     try {
-        console.log("antes signup");
         const response = await signup(username, email, password);
-        console.log("despues signup");
 
         console.log(response);
-        console.log("terminé");
+        window.location.href = "../index.html";
     } catch (error) {
-        console.log(error);
+        console.log(error.message);
+
+        dom.showError(errorElement, error.message);
     }
 });

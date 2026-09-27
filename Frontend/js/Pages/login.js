@@ -3,12 +3,21 @@ import * as domUtils from "../Utils/dom.js";
 import { login } from "../API/auth.api.js";
 import { saveToken } from "../Auth/auth.js";
 
-const passwordInput = document.querySelector(".login-form__password");
+const signupModal = document.querySelector(".signup-modal");
+const signupModalBtn = document.querySelector(".signup-modal__btn");
+
 const viewPasswordButton = document.querySelector(".login-form__show-password-button");
 const hidePasswordButton = document.querySelector(".login-form__hide-password-button");
+
+const emailInput = document.querySelector(".login-form__user");
+const passwordInput = document.querySelector(".login-form__password");
+
 const formError = document.querySelector(".form_error-text");
 const loginButton = document.querySelector(".login-form__button");
-const emailInput = document.querySelector(".login-form__user");
+
+if (document.referrer.includes("signup")) signupModal.showModal();
+
+signupModalBtn.addEventListener("click", ()=> { signupModal.close(); })
 
 viewPasswordButton.addEventListener("click", () =>{
     passwordInput.type = "text";
