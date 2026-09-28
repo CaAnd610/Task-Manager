@@ -11,6 +11,48 @@ main {
     align-items: space-between;
 }
 
+.signup-modal {
+    margin: 20px auto;
+    padding: 10px;
+    width: 50%;
+    height: 100px;
+
+    background-color: var(--background-color);
+    opacity: 100;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    position: relative;
+}
+
+.signup-modal::backdrop {
+    background-color: rgba(0, 0, 0, 0.8); 
+}
+
+.signup-modal[open] {
+    animation: borderAnimation 2s linear infinite;
+}
+
+.signup-modal__text {
+    font-family: "Ledger", serif;
+    font-weight: 600;
+    font-size: 20px;
+    font-style: normal;
+    text-align: center;
+
+    padding-top: 25px;
+}
+
+.signup-modal__btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 10px;
+}
+
 .form-section {
     display: flex;
     flex-direction: column;
@@ -261,4 +303,16 @@ main {
     text-align: left;
 
     color: #e03232da;
+}
+
+@keyframes borderAnimation {
+    0% {
+        box-shadow: 0 0 0 4px var(--dark-blue), 0 4px 20px rgba(0,0,0,0.15);
+    }
+    50% {
+        box-shadow: 0 0 0 4px var(--light-blue), 0 4px 20px rgba(0,0,0,0.15);
+    }
+    100% {
+        box-shadow: 0 0 0 4px var(--dark-blue), 0 4px 20px rgba(0,0,0,0.15);
+    }
 }

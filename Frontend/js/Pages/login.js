@@ -64,8 +64,7 @@ loginButton.addEventListener("click", async (e) => {
             const response = await login(email, password);
 
             saveToken(response.token);
-            
-            console.log(response);
+            window.location.href = "./pages/dashboard.html";
         } catch (error) {
             console.log("error: ", error);
 
