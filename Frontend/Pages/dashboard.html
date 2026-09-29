@@ -4,8 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    
+    <nav class="nav-bar">
+        <h2 class="nav-bar__tittle">Astra</h2>
+        <h4 class="nav-bar__element">Tus eventos</h4>
+        <h4 class="nav-bar__element">Flashcards</h4>
+        <h4 class="nav-bar__element">Horario</h4>
+        <h4 class="nav-bar__element">Sesiones de estudio</h4>
+    </nav>
+    <main>
+        <section class="dashboard-tasks">
+            <h1 class="dashboard-tittle">Bienvenidos</h1>
+            <div class="dashboard-tasks__filters-container">
+                <button class="btn dashboard-tasks__filter">Hoy</button>
+                <button class="btn dashboard-tasks__filter">Esta semana</button>
+                <button class="btn dashboard-tasks__filter">Este mes</button>
+            </div>
+            <div class="dashboard-tasks__tasks-container">
+                <section class="dashboard-tasks__task">
+                    <h3 class="dashboard-tasks__task-tittle">Nombre del evento</h3>
+                    <p class="dashboard-tasks__task-subject">Materia</p>
+                    <time class="dashboard-tasks__task-init-date" datetime="2026-09-13">2020-2-20</time>
+                    <time class="dashboard-tasks__task-finish-date" datetime="2026-09-15">2020-4-30</time>
+                    <p class="dashboard-tasks__task-advice">Vence hoy</p>
+                    <button class="btn dashboard-tasks__edit-task">Editar</button>
+                </section>
+                <section class="dashboard-tasks__task">
+                    <h3 class="dashboard-tasks__task-tittle">Nombre del evento</h3>
+                    <p class="dashboard-tasks__task-subject">Materia</p>
+                    <time class="dashboard-tasks__task-init-date" datetime="2026-09-13">2020-2-20</time>
+                    <time class="dashboard-tasks__task-finish-date" datetime="2026-09-15">2020-4-30</time>
+                    <p class="dashboard-tasks__task-advice">Vence hoy</p>
+                    <button class="btn dashboard-tasks__edit-task">Editar</button>
+                </section>
+            </div>
+            <button class="dashboard-tasks__create-task">Añadir una tarea nueva</button>
+        </section>
+        <section class="dashboard-calendar">
+            <div class="dashboard-calendar__calendar">
+                Aqui va un calendario enorme
+            </div>
+        </section>
+    </main>
 </body>
 </html>
