@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italianno&family=Kaisei+Opti&family=Kapakana:wght@300..400&family=Ledger&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="nav-bar">
@@ -16,9 +20,9 @@
     </nav>
     <main>
         <section class="dashboard-tasks">
-            <h1 class="dashboard-tittle">Bienvenidos</h1>
+            <h1 class="dashboard-tasks__tittle">Bienvenido</h1>
             <div class="dashboard-tasks__filters-container">
-                <button class="btn dashboard-tasks__filter">Hoy</button>
+                <button class="btn dashboard-tasks__filter selected-filter">Hoy</button>
                 <button class="btn dashboard-tasks__filter">Esta semana</button>
                 <button class="btn dashboard-tasks__filter">Este mes</button>
             </div>
@@ -43,8 +47,8 @@
             <button class="dashboard-tasks__create-task">Añadir una tarea nueva</button>
         </section>
         <section class="dashboard-calendar">
-            <div class="dashboard-calendar__calendar">
-                Aqui va un calendario enorme
+            <div class="dashboard-calendar__calendar-container">
+                <iframe class="dashboard-calendar__calendar" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FBogota&showPrint=0&showNav=0&showTz=0&src=Y2FybG9zNjEwYW1AZ21haWwuY29t&src=Y2xhc3Nyb29tMTE4MTM3OTgxNTA2MDA1OTYwMzg3QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=ZXMtdXMuY28jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&src=ZXMtNDE5LmNvI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039be5&color=%231967d2&color=%230b8043&color=%230b8043" style="border-width:0" width="1000" height="600" frameborder="0" scrolling="no"></iframe>
             </div>
         </section>
     </main>

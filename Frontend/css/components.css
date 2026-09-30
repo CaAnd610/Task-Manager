@@ -36,3 +36,46 @@
     font-weight: 600;
     color: #aaa;
 }
+
+.nav-bar {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    height: 100vh;
+
+    background-color: var(--light-blue);
+    border-right: 10px solid var(--blue);
+    position: sticky;
+    top: 0;
+}
+
+.nav-bar__tittle {
+    font-family: "Italianno", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 60px;
+
+    align-self: center;
+}
+
+.nav-bar__element {
+    font-family: "Ledger", serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 18px;
+
+    margin: 7px;
+    padding: 5px;
+
+    background-color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.nav-bar__element:hover {
+    background-color: #ddd;
+}
+
+.nav-bar__element:active {
+    background-color: #bbb;
+}

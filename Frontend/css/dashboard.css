@@ -1,0 +1,62 @@
+@import "base.css";
+
+body {
+    display: flex;
+}
+
+main {
+    margin: 20px 30px;
+}
+
+.dashboard-tasks__tittle {
+    font-family: "Kapakana", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 80px;
+
+    margin-top: 0;
+}
+
+.dashboard-tasks__filters-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+    width: 400px;
+    height: 40px;
+    padding: 5px;
+    background-color: #eee;
+    border-radius: 10px;
+}
+
+.dashboard-tasks__filter {
+    font-family: "Ledger", serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 15px;
+
+    padding: 6px 20px;
+    background-color: transparent;
+}
+
+.selected-filter {
+    background-color: #fff;
+    border-radius: 6px;
+}
+
+.dashboard-tasks__tasks-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-tasks__task {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    margin: 10px;
+    padding: 10px;
+    background-color: var(--background-darker-color);
+}
