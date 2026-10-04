@@ -8,7 +8,12 @@ main {
     margin: 20px 30px;
 }
 
-.dashboard-tasks__tittle {
+.dashboard-events {
+    border-bottom: 2px solid #777;
+    margin-bottom: 20px;
+}
+
+.dashboard-events__tittle {
     font-family: "Kapakana", cursive;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -18,7 +23,7 @@ main {
     margin-top: 0;
 }
 
-.dashboard-tasks__filters-container {
+.dashboard-events__filters-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -31,7 +36,7 @@ main {
     border-radius: 10px;
 }
 
-.dashboard-tasks__filter {
+.dashboard-events__filter {
     font-family: "Ledger", serif;
     font-weight: 600;
     font-style: normal;
@@ -46,17 +51,68 @@ main {
     border-radius: 6px;
 }
 
-.dashboard-tasks__tasks-container {
+.dashboard-events__events-container {
     display: flex;
     flex-direction: column;
+    height: auto;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
-.dashboard-tasks__task {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+.dashboard-events__event {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 50px 50px;
+    gap: 10px 20px;
+    
+    font-family: "Kaisei Opti", serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 20px;
 
     margin: 10px;
-    padding: 10px;
+    padding: 15px;
     background-color: var(--background-darker-color);
+}
+
+.dashboard-events__event-tittle {
+    font-family: "Italianno", cursive;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 35px;
+}
+
+.dashboard-events__event-advice {
+    font-family: "Italianno", cursive;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 35px;
+
+    color: var(--dark-blue);
+    text-align: right;
+}
+
+.dashboard-events__event-button-container {
+    position: relative;
+}
+
+.dashboard-events__edit-event {
+    width: 100px;
+    height: 30px;
+    background-color: #aaa;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.dashboard-events__create-event {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 200px;
+    height: 35px;
+    background-color: var(--dark-blue);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
 }

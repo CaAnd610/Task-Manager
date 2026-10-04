@@ -19,32 +19,46 @@
         <h4 class="nav-bar__element">Sesiones de estudio</h4>
     </nav>
     <main>
-        <section class="dashboard-tasks">
-            <h1 class="dashboard-tasks__tittle">Bienvenido</h1>
-            <div class="dashboard-tasks__filters-container">
-                <button class="btn dashboard-tasks__filter selected-filter">Hoy</button>
-                <button class="btn dashboard-tasks__filter">Esta semana</button>
-                <button class="btn dashboard-tasks__filter">Este mes</button>
+        <section class="dashboard-events">
+            <h1 class="dashboard-events__tittle">Bienvenido</h1>
+            <div class="dashboard-events__filters-container">
+                <button class="btn dashboard-events__filter day-filter selected-filter">Hoy</button>
+                <button class="btn dashboard-events__filter week-filter">Esta semana</button>
+                <button class="btn dashboard-events__filter month-filter">Este mes</button>
             </div>
-            <div class="dashboard-tasks__tasks-container">
-                <section class="dashboard-tasks__task">
-                    <h3 class="dashboard-tasks__task-tittle">Nombre del evento</h3>
-                    <p class="dashboard-tasks__task-subject">Materia</p>
-                    <time class="dashboard-tasks__task-init-date" datetime="2026-09-13">2020-2-20</time>
-                    <time class="dashboard-tasks__task-finish-date" datetime="2026-09-15">2020-4-30</time>
-                    <p class="dashboard-tasks__task-advice">Vence hoy</p>
-                    <button class="btn dashboard-tasks__edit-task">Editar</button>
+            <div class="dashboard-events__events-container">
+                <section class="dashboard-events__event">
+                    <h3 class="dashboard-events__event-tittle">Tarea funciones trigonometricas</h3>
+                    <p class="dashboard-events__event-subject">Matemáticas</p>
+                    <p class="dashboard-events__event-advice">Vence hoy!</p>
+                    <p class="dashboard-events__event-type">Tarea</p>
+                    <time class="dashboard-events__event-finish-date" datetime="2026-09-15">2020-4-30</time>
+                    <div class="dashboard-events__event-button-container">
+                        <button class="btn dashboard-events__edit-event">Editar</button>
+                    </div>
                 </section>
-                <section class="dashboard-tasks__task">
-                    <h3 class="dashboard-tasks__task-tittle">Nombre del evento</h3>
-                    <p class="dashboard-tasks__task-subject">Materia</p>
-                    <time class="dashboard-tasks__task-init-date" datetime="2026-09-13">2020-2-20</time>
-                    <time class="dashboard-tasks__task-finish-date" datetime="2026-09-15">2020-4-30</time>
-                    <p class="dashboard-tasks__task-advice">Vence hoy</p>
-                    <button class="btn dashboard-tasks__edit-task">Editar</button>
+                <section class="dashboard-events__event">
+                    <h3 class="dashboard-events__event-tittle">Nombre del evento</h3>
+                    <p class="dashboard-events__event-subject">Materia</p>
+                    <p class="dashboard-events__event-advice">Vence hoy!</p>
+                    <p class="dashboard-events__event-type">Exam</p>
+                    <time class="dashboard-events__event-finish-date" datetime="2026-09-15">2020-4-30</time>
+                    <div class="dashboard-events__event-button-container">
+                        <button class="btn dashboard-events__edit-event">Editar</button>
+                    </div>
+                </section>
+                <section class="dashboard-events__event">
+                    <h3 class="dashboard-events__event-tittle">Nombre del evento</h3>
+                    <p class="dashboard-events__event-subject">Materia</p>
+                    <p class="dashboard-events__event-advice">Vence hoy!</p>
+                    <p class="dashboard-events__event-type">Exam</p>
+                    <time class="dashboard-events__event-finish-date" datetime="2026-09-15">2020-4-30</time>
+                    <div class="dashboard-events__event-button-container">
+                        <button class="btn dashboard-events__edit-event">Editar</button>
+                    </div>
                 </section>
             </div>
-            <button class="dashboard-tasks__create-task">Añadir una tarea nueva</button>
+            <button class="dashboard-events__create-event">+ Añadir una tarea nueva</button>
         </section>
         <section class="dashboard-calendar">
             <div class="dashboard-calendar__calendar-container">
@@ -52,5 +66,6 @@
             </div>
         </section>
     </main>
+    <script type="module" src="../js/Pages/dashboard.js"></script>
 </body>
 </html>
