@@ -36,7 +36,7 @@ exports.createEvent = (req, res) => {
 exports.getEvents = (req, res) => {
     const userId = req.user.id;
 
-    db.all('SELECT * FROM events WHERE user_id = ?',
+    db.all('SELECT * FROM events JOIN subjects ON events.subject_id = subjects.id WHERE events.user_id = ?',
         [userId],
         function (err, rows){
 

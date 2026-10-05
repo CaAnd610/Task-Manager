@@ -4,7 +4,8 @@ export const request = async (endpoint, options = {}) => {
     const response = await fetch(`${API_URL}${endpoint}`, {
         method: options.method || "GET",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorization" : options.token ? `Bearer ${options.token}` : undefined
         },
         body: options.body ? JSON.stringify(options.body) : null        
     });
