@@ -28,12 +28,21 @@ const getUserEvents = async () => {
 
 const userEvents = await getUserEvents();
 
-dayFilter.addEventListener("click", () => {
-    let selectedFilter = document.querySelector(".selected-filter");
-    selectedFilter.classList.remove("selected-filter");
-    dayFilter.classList.add("selected-filter");
+const renderEvents = (events) => {
+    dashboardEventsContainer.innerHTML = "";
 
+    if (events.length === 0){
+        dashboardEventsContainer.innerHTML = "<p class='dashboard-events__empty-advice'>No hay eventos</p>";
+
+        return;
+    }
+
+    events.forEach(event => showDashboardEventCard(dashboardEventsContainer, event));
+}
+
+const showTodayEvents = () => {
     const today = new Date();
+
     const todayString = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
 
     let todayEvents = userEvents.filter(event => event.due_date === todayString);
@@ -45,25 +54,76 @@ dayFilter.addEventListener("click", () => {
             event.advice = "Completado";
         }
     })
+
+    renderEvents(todayEvents);
     console.log(todayEvents);
+}
 
-    dashboardEventsContainer.innerHTML = "";
+const showWeekEvents = () => {
+    const today = new Date();
 
-    if (todayEvents.length === 0){
-        dashboardEventsContainer.innerHTML = "<p class='dashboard-events__empty-advice'>No hay eventos para hoy</p>";
-    } else {
-        todayEvents.forEach(event => showDashboardEventCard(dashboardEventsContainer, event));
-    }
+    const todayString = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+
+    const nextWeekString = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate() + 7).padStart(2, "0")}`;
+
+    let weekEvents = userEvents.filter(event => event.due_date > todayString && event.due_date <= nextWeekString);
+
+    weekEvents.forEach(event => {
+        if (event.event_status === 0){
+            event.advice = "Pendiente";
+        } else {
+            event.advice = "Completado";
+        }
+    })
+
+    renderEvents(weekEvents);
+}
+
+const showMonthEvents = () => {
+    const today = new Date();
+
+    const nextWeekString = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate() + 7).padStart(2, "0")}`
+
+    const nextMonthString = `${today.getFullYear()}-${String(today.getMonth() + 2).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;;
+
+    let monthEvents = userEvents.filter(event => event.due_date > nextWeekString && event.due_date <= nextMonthString);
+
+    monthEvents.forEach(event => {
+        if (event.event_status === 0){
+            event.advice = "Pendiente";
+        } else {
+            event.advice = "Completado";
+        }
+    })
+
+    renderEvents(monthEvents);
+}
+
+showTodayEvents();
+
+dayFilter.addEventListener("click", () => {
+    let selectedFilter = document.querySelector(".selected-filter");
+
+    selectedFilter.classList.remove("selected-filter");
+    dayFilter.classList.add("selected-filter");
+
+    showTodayEvents();
 });
 
 weekFilter.addEventListener("click", () => {
     let selectedFilter = document.querySelector(".selected-filter");
+
     selectedFilter.classList.remove("selected-filter");
     weekFilter.classList.add("selected-filter");
+
+    showWeekEvents();
 });
 
 monthFilter.addEventListener("click", () => {
     let selectedFilter = document.querySelector(".selected-filter");
+
     selectedFilter.classList.remove("selected-filter");
     monthFilter.classList.add("selected-filter");
+
+    showMonthEvents();
 });

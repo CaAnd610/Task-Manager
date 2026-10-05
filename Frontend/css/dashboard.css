@@ -106,6 +106,24 @@ main {
     bottom: 0;
 }
 
+.dashboard-events__edit-event:hover {
+    background-color: #999;
+}
+
+.dashboard-events__edit-event:active {
+    background-color: #888;
+}
+
+.dashboard-events__empty-advice {
+    font-family: "Kaisei Opti", serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 20px;
+
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 .dashboard-events__create-event {
     margin-top: 20px;
     margin-bottom: 10px;
@@ -115,4 +133,15 @@ main {
     border: none;
     border-radius: 10px;
     color: #fff;
+    transition: scale 0.5s ease;
+}
+
+.dashboard-events__create-event:hover {
+    background-color: var(--blue);
+    cursor: pointer;
+    scale: 1.1;
+}
+
+.dashboard-events__create-event:active {
+    background-color: var(--dark-blue);
 }

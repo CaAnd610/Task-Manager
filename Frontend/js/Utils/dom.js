@@ -25,7 +25,7 @@ export const showDashboardEventCard = (container, event = {}) => {
     const tittle = event.title;
     const subject = event.subject_name;
     const advice = event.advice;
-    const type = event.type;
+    const type = event.event_type;
     const dueDate = event.due_date;
 
     const card = document.createElement("section");
