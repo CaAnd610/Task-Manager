@@ -13,12 +13,15 @@ const getUserEvents = async () => {
 
     try {
         const events = await getEvents(token);
+
         return events.events;
     } catch (error) {
         if (error.message === "No events found") {
             console.log("No events found for the user");
+
         } else if (error.message === "Invalid token") {
             window.localStorage.removeItem("token");
+
             window.location.href = "../index.html";
         } else {
             console.log(error.message);
@@ -56,7 +59,6 @@ const showTodayEvents = () => {
     })
 
     renderEvents(todayEvents);
-    console.log(todayEvents);
 }
 
 const showWeekEvents = () => {
@@ -99,7 +101,12 @@ const showMonthEvents = () => {
     renderEvents(monthEvents);
 }
 
-showTodayEvents();
+if (userEvents) {
+    showTodayEvents();
+} else {
+    dashboardEventsContainer.innerHTML = "<p class='dashboard-events__empty-advice'>No hay eventos</p>";
+}
+
 
 dayFilter.addEventListener("click", () => {
     let selectedFilter = document.querySelector(".selected-filter");
