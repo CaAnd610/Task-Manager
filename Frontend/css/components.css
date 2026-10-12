@@ -44,7 +44,6 @@
     height: 100vh;
 
     background-color: var(--light-blue);
-    border-right: 10px solid var(--blue);
     position: sticky;
     top: 0;
 }
