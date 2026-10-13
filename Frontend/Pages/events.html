@@ -20,14 +20,47 @@
     </nav>
     <main>
         <header class="header">
-            <div class="upper-header">
+            <div class="header-intro">
                 <div class="upper-header__text">
                     <h2 class="upper-header__text-tittle">Bienvenido</h2>
                     <p class="upper-header__text-intro">Tus eventos - Gestiona tus tareas, exámenes y compromisos académicos</p>
                 </div>
                 <button class="upper-header__create-event btn">Añadir nuevo evento</button>
             </div>
+            <div class="header-advices">
+                <div class="header-advices__advice">
+                    <span class="header-advices__advice-text ">Total pendientes</span>
+                    <span class="header-advices__advice-text">5</span>
+                </div>
+                <div class="header-advices__advice">
+                    <span class="header-advices__advice-text today-advice">Vence Hoy</span>
+                    <span class="header-advices__advice-text today-advice-number">5</span>
+                </div>
+                <div class="header-advices__advice">
+                    <span class="header-advices__advice-text">Esta semana</span>
+                    <span class="header-advices__advice-text">5</span>
+                </div>
+            </div>
         </header>
+        <section class="filters-section">
+            <div class="filters__time-filters">
+                <div class="time-filters__times-selection">
+                    <button class="times-selection__filter">Hoy</button>
+                    <button class="times-selection__filter">Esta semana</button>
+                    <button class="times-selection__filter">Este mes</button>
+                    <button class="times-selection__filter">Todos</button>
+                </div>
+                <div class="time-filters__order-by">
+                    <label for="order-by__select" class="order-by__label">Ordenar por:</label>
+                    <select name="order-by__select" class="order-by__select">
+                        <option value="nearest">Fecha de entrega(Más Próximo primero)</option>
+                        <option value="subject">Materia (A-Z)</option>
+                        <option value="priority">Prioridad mas alta</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
     </main>
 </body>
 </html>
