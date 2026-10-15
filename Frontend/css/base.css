@@ -1,10 +1,13 @@
 :root {
     --background-color: #F8F4E9;
     --background-darker-color: #d4cab64d;
-    --light-blue: #BDC4D4;
+    --light-blue: #9cb0c5;
     --blue: #52667E;
     --dark-blue: #1D2E4A;
     --brown: #5A4033;
+
+    --cursive: "Great Vibes";
+    
 }
 
 *{
