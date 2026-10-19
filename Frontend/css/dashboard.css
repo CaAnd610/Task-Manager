@@ -6,6 +6,7 @@ body {
 
 main {
     margin: 20px 30px;
+    width: 85%;
 }
 
 .dashboard-events {
