@@ -5,9 +5,13 @@
     --blue: #52667E;
     --dark-blue: #1D2E4A;
     --brown: #5A4033;
+    --light-gray: #4b5563;
+    --urgent: #b91c1c;
 
     --cursive: "Great Vibes";
-    
+    --cormorant: "Cormorant Garamond";
+    --sans: "Plus Jakarta Sans";
+    --serif: "Playfair Display";
 }
 
 *{

@@ -1,3 +1,5 @@
+@import "base.css";
+
 body {
     display: flex;
 }
@@ -10,7 +12,7 @@ main {
 header {
     height: 200px;
     width: 100%;
-    padding: 32px 32px 32px 20px;
+    padding: 20px 32px 20px 32px;
 
     border-bottom: 1px solid #e5dfd2;
 }
@@ -22,7 +24,93 @@ header {
     margin-bottom: 20px;
 }
 
+.upper-header__text-tittle {
+    font-family: var(--cormorant), cursive;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 60px;
+}
+
+.upper-header__text-intro {
+    font-family: var(--sans);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+
+    color: var(--light-gray);
+}
+
+.upper-header__create-event {
+    font-family: var(--sans);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+
+    width: 200px;
+    height: 40px;
+    padding: 10px 16px;
+
+    align-self: flex-end;
+    background-color: #1d2a3a;
+    color: #fff;
+    
+
+    svg {
+        width: 14px;
+        height: 14px;
+
+        margin-right: 5px;
+    }
+}
+
 .header-advices {
     display: flex;
     justify-content: space-between;
+}
+
+.header-advices__advice {
+    display: flex;
+    justify-content: space-between;
+    
+
+    width: 33%;
+    height: 46px;
+    padding: 10px 16px;
+
+    font-family: var(--sans);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+
+    background-color: #fff;
+    border: 2px solid var(--background-darker-color);
+    border-radius: 12px;
+
+    color: #4b5563;
+}
+
+.header-advices__advice-text {
+    align-self: center;
+}
+
+.header-advices__advice-number {
+    width: 30px;
+    height: 24px;
+    padding: 2px 10px;
+
+    align-self: center;
+    font-size: 14px;
+    font-weight: 600;
+
+    background-color: #f3f4f6;
+    border-radius: 100%;
+}
+
+.today-advice {
+    color: var(--urgent);
+}
+
+.today-advice-number {
+    color: var(--urgent);
+    background-color: #fee2e2;
 }
