@@ -58,23 +58,27 @@
                 <div class="time-filters__order-by">
                     <label for="order-by__select" class="order-by__label">Ordenar por:</label>
                     <select name="order-by-filter" class="order-by__select">
-                        <option value="nearest">Fecha de entrega(Más Próximo primero)</option>
+                        <option value="nearest">Fecha de entrega (Más Próximo primero)</option>
                         <option value="subject">Materia (A-Z)</option>
                         <option value="priority">Prioridad mas alta</option>
                     </select>
                 </div>
             </div>
             <div class="filters__filters-controls">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <input type="text" class="filters-controls__search-input" placeholder="Buscar eventos, materias o títulos...">
-                <select name="subjects-filter" id="subjects-filter" class="filters-controls__subject-filter">
+                <div class="filters-controls__search-input-div">
+                    <div class="search-input__svg-container">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    </div>
+                    <input type="text" class="filters-controls__search-input input" placeholder="Buscar eventos, materias o títulos...">
+                </div>
+                <select name="subjects-filter" id="subjects-filter" class="filters-controls__subject-filter input">
                     <option value="all-subjects" class="subject-filter__option">Todas las materias</option>
                     <option value="español" class="subject-filter__option">español</option>
                     <option value="ingles" class="subject-filter__option">Inglés</option>
                 </select>
-                <select name="type-filter" id="type-filter" class="filters-controls__type-filter">
+                <select name="type-filter" id="type-filter" class="filters-controls__type-filter input">
                     <option value="all-types" class="type-filter__option">Todos los tipos</option>
                     <option value="Homework" class="type-filter__option">Tareas</option>
                     <option value="Exam" class="type-filter__option">Examen</option>
