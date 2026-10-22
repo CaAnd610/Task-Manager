@@ -12,7 +12,7 @@
     --cursive: "Great Vibes";
     --cormorant: "Cormorant Garamond";
     --sans: "Plus Jakarta Sans";
-    --serif: "Playfair Display";
+    --serif: ["Playfair Display", "Georgia"];
 }
 
 *{

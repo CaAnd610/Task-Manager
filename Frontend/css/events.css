@@ -253,3 +253,151 @@ header {
 
     border: 1px solid var(--dark-border);
 }
+
+.events-section {
+    padding: 32px;
+}
+
+.events__header {
+    display: flex;
+    justify-content: space-between;
+
+    font-family: var(--sans);
+}
+
+.events-header__tittle {
+    font-size: 14px;
+
+    color: #4b5563;
+}
+
+.events-header__events-showed {
+    font-size: 12px;
+
+    color: #6b7280;
+}
+
+.events__event-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px;
+    margin-top: 16px;
+
+    background-color: #ebe3d3;
+    border-radius: 16px;
+    border: 2px solid #d6cbba;
+}
+
+.event-card__card-left-side {
+    width: 50%;
+}
+
+.card-left-side__labels {
+    display: flex;
+    gap: 10px;
+
+    margin-bottom: 6px;
+}
+
+.labels__event-type {
+    padding: 2px 10px;
+
+    font-family: var(--sans);
+    font-size: 12px;
+
+    color: #1e3a8a;
+    background-color: #dbeafe;
+    border-radius: 6px;
+    border: 1px solid #bfdbfe;
+}
+
+.labels__event-subject {
+    padding: 2px 10px;
+
+    font-family: var(--sans);
+    font-size: 12px;
+
+    color: #374151;
+    background-color: #f3f4f6;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+}
+
+.card-left-side__event-tittle {
+    font-family: var(--cormorant);
+    font-size: 24px;
+
+    color: #030712;
+}
+
+.card-left-side__event-description {
+    margin-top: 4px;
+
+    font-family: var(--sans);
+    font-size: 12px;
+    
+    color: #4b5563;
+}
+
+.event-card__card-right-side {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    width: 12%;
+}
+
+.card-right-side__due-advice {
+    display: block;
+
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 700;
+    font-size: 18px;
+
+    color: #b91c1c;
+    text-align: right;
+}
+
+.card-right-side__due-date {
+    font-family: var(--sans);
+    font-size: 12px;
+
+    color: #374151;
+}
+
+.card-right-side__event-options {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.card-right-side__svg {
+    width: 28px;
+    height: 28px;
+    padding: 6px;
+
+    align-self: center;
+    border-radius: 8px;
+
+    :hover {
+        background-color: ;
+    }
+}
+
+.card-right-side__edit-event {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 400;
+
+    padding: 6px 16px;
+
+    color: #111827;
+    background-color: #a2abb8;
+}
+
+.card-right-side__edit-event:hover {
+    background-color: #909ba9;
+}
