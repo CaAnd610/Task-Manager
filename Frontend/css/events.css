@@ -4,6 +4,10 @@ body {
     display: flex;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
 main {
     height: 100%;
     width: 100%;
@@ -285,9 +289,9 @@ header {
     padding: 20px;
     margin-top: 16px;
 
-    background-color: #ebe3d3;
+    background-color: #fff;
     border-radius: 16px;
-    border: 2px solid #d6cbba;
+    border: 1px solid var(--dark-border);
 }
 
 .event-card__card-left-side {
@@ -346,7 +350,7 @@ header {
     flex-direction: column;
     gap: 12px;
 
-    width: 12%;
+    width: auto;
 }
 
 .card-right-side__due-advice {
@@ -381,10 +385,6 @@ header {
 
     align-self: center;
     border-radius: 8px;
-
-    :hover {
-        background-color: ;
-    }
 }
 
 .card-right-side__edit-event {
@@ -400,4 +400,63 @@ header {
 
 .card-right-side__edit-event:hover {
     background-color: #909ba9;
+}
+
+.calendar-section {
+    font-family: var(--sans);
+    font-size: 12px;
+
+    margin: 32px;
+    margin-top: 0;
+
+    border-radius: 16px;
+    border: 1px solid var(--dark-border);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 12px 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.calendar-header__tittle {
+    font-weight: 600;
+}
+
+.calendar-header__week {
+    font-weight: 400;
+    color: #6b7280;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-rows: 86px;
+    grid-template-columns: repeat(1fr, 7);
+    grid-auto-flow: column;
+}
+
+.calendar-day {
+    padding: 12px;
+
+    background-color: #fff;
+    text-align: center;
+    border-left: 1px solid #e5e7eb;
+}
+
+.calendar-day__name {
+    display: block;
+
+    font-size: 10px;
+    font-weight: 700;
+    color: #6b7280;
+}
+
+.calendar-day__number {
+    display: block;
+    margin-top: 4px;
+
+    font-size: 14px;
+    font-weight: 600;
 }
