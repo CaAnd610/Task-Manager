@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Astra Task Manager - Nuevo Evento Académico</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Great Vibes / Playfair Display / Cormorant Garamond / Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Great+Vibes&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,500&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sidebar: '#9cb0c5',
+            'sidebar-hover': '#8ca3ba',
+            'sidebar-border': '#859cb4',
+            canvas: '#f8f5ee',
+            'canvas-card': '#ffffff',
+            'canvas-border': '#e5e0d3',
+            'astra-navy': '#1d2a3a',
+            'astra-navy-hover': '#131e2b',
+            'astra-slate': '#516072',
+            'tag-urgent': '#b91c1c',
+            'tag-urgent-bg': '#fef2f2',
+            'tag-urgent-border': '#fecaca',
+            'tag-exam': '#9a3412',
+            'tag-task': '#1e3a8a',
+            'tag-task-bg': '#eff6ff',
+          },
+          fontFamily: {
+            script: ['"Great Vibes"', 'cursive'],
+            serif: ['"EB Garamond"', '"Playfair Display"', 'Georgia', 'serif'],
+            cormorant: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-theme-styles">
+    /* Subtle custom transitions and aesthetics */
+    .input-base {
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .input-base:focus {
+      background-color: #ffffff;
+      border-color: #1d2a3a;
+      box-shadow: 0 0 0 3px rgba(29, 42, 58, 0.08);
+      outline: none;
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1eee4;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #c7d1dc;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #9cb0c5;
+    }
+  </style>
+<meta content="web_dashboard" name="shell-type"/></head>
+<body class="bg-[#f8f5ee] text-slate-800 font-sans antialiased min-h-screen flex selection:bg-sidebar selection:text-white">
+<!-- BEGIN: Sidebar -->
+<aside class="w-64 bg-sidebar min-h-screen flex flex-col justify-between border-r border-sidebar-border shrink-0 select-none shadow-sm sticky top-0 h-screen" data-purpose="main-sidebar">
+<div class="px-5 pt-8 pb-4">
+<!-- Astra Script Logo -->
+<div class="mb-10 pl-2">
+<h1 class="font-script text-5xl text-gray-900 tracking-wide font-normal leading-none" style="text-shadow: 0px 1px 1px rgba(255,255,255,0.4);">
+          Astra
+        </h1>
+<p class="text-xs font-serif italic text-gray-800 tracking-wider mt-1 opacity-85">Academic Task Manager</p>
+</div>
+<!-- Navigation Capsule Links -->
+<nav class="space-y-3" data-purpose="navigation-menu">
+<!-- Tus eventos (Active State) -->
+<a class="flex items-center justify-between px-4 py-2.5 bg-white text-gray-950 rounded-xl font-medium shadow-sm border border-white hover:bg-slate-50 transition-all" href="#eventos">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-astra-navy">event_note</span>
+<span class="text-sm font-semibold tracking-tight">Tus eventos</span>
+</div>
+<span class="w-2 h-2 rounded-full bg-astra-navy"></span>
+</a>
+<!-- Flashcards -->
+<a class="flex items-center justify-between px-4 py-2.5 bg-white/70 text-gray-800 rounded-xl font-medium hover:bg-white transition-all border border-transparent shadow-none hover:shadow-sm" href="#flashcards">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-slate-600">style</span>
+<span class="text-sm font-medium">Flashcards</span>
+</div>
+<span class="text-xs bg-slate-200/80 px-2 py-0.5 rounded-full font-medium text-slate-700">12</span>
+</a>
+<!-- Horario -->
+<a class="flex items-center justify-between px-4 py-2.5 bg-white/70 text-gray-800 rounded-xl font-medium hover:bg-white transition-all border border-transparent shadow-none hover:shadow-sm" href="#horario">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-slate-600">calendar_month</span>
+<span class="text-sm font-medium">Horario</span>
+</div>
+</a>
+<!-- Sesiones de estudio -->
+<a class="flex items-center justify-between px-4 py-2.5 bg-white/70 text-gray-800 rounded-xl font-medium hover:bg-white transition-all border border-transparent shadow-none hover:shadow-sm" href="#sesiones">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-slate-600">hourglass_empty</span>
+<span class="text-sm font-medium leading-snug">Sesiones de estudio</span>
+</div>
+</a>
+</nav>
+</div>
+<!-- Sidebar Bottom Profile / Session Section -->
+<div class="p-5 border-t border-sidebar-border/50 bg-sidebar/80">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-astra-navy text-white flex items-center justify-center font-serif text-sm font-bold shadow-sm">
+          M
+        </div>
+<div class="flex-1 min-w-0">
+<p class="text-xs font-semibold text-gray-900 truncate">Marilyn C.</p>
+<p class="text-[11px] text-gray-700 truncate">Semestre II • 2026</p>
+</div>
+<button class="text-gray-700 hover:text-gray-950 p-1 rounded-md transition-colors" title="Cerrar sesión">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+</aside>
+<!-- END: Sidebar -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 flex flex-col min-w-0 overflow-y-auto bg-[#f8f5ee]" data-purpose="main-layout">
+<div class="flex flex-col w-full py-8 px-6 sm:px-10 lg:px-12 max-w-7xl mx-auto">
+<!-- Header & Back Bar -->
+<div class="mb-8">
+<div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-[#e5e0d3]">
+<a class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-[#ded9cb] hover:border-[#1d2a3a] text-slate-700 hover:text-slate-900 text-xs font-medium rounded-lg shadow-sm transition-all group" href="#eventos">
+<span class="material-symbols-outlined text-sm group-hover:-translate-x-0.5 transition-transform text-slate-500 group-hover:text-slate-900">arrow_back</span>
+<span>Volver a Tus eventos</span>
+</a>
+<div class="flex items-center gap-2 bg-[#ece8dc] text-slate-600 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
+<span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+          Semestre II • Modo Planificación
+        </div>
+</div>
+<div class="pt-6">
+<div class="flex items-center gap-2 text-xs uppercase tracking-widest text-slate-500 font-semibold mb-1">
+<span>Registro Académico</span>
+<span class="text-slate-400">•</span>
+<span class="font-normal text-slate-500">Protocolo Nº 24</span>
+</div>
+<h1 class="font-serif text-3xl sm:text-4xl text-slate-900 font-medium tracking-tight">
+          Nuevo Evento Académico
+        </h1>
+<p class="text-slate-600 text-sm mt-1 max-w-2xl font-sans leading-relaxed">
+          Planifica evaluaciones, entregas de proyectos y compromisos con especificaciones de rúbrica y ponderación en tu agenda.
+        </p>
+</div>
+</div>
+<!-- Two-Column Main Layout -->
+<form class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start" id="event-form" onsubmit="event.preventDefault(); return false;">
+<!-- Left Column: Primary Fields Form (68%) -->
+<div class="lg:col-span-8 space-y-6">
+<!-- Main Card -->
+<div class="bg-white rounded-2xl border border-[#e5e0d3] p-6 sm:p-8 shadow-sm space-y-7">
+<!-- 1. Título del evento -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="text-xs uppercase tracking-wider font-semibold text-slate-700 flex items-center gap-1" for="event-title">
+<span>Título del evento o evaluación</span>
+<span class="text-red-500">*</span>
+</label>
+<span class="text-[11px] text-slate-400 font-medium">Requerido</span>
+</div>
+<input class="input-base w-full bg-[#faf8f4] border border-[#d8d3c5] rounded-xl px-4 py-3 text-slate-900 placeholder:text-slate-400 text-sm sm:text-base font-normal focus:bg-white" id="event-title" name="event_title" placeholder="Ej. Ensayo Argumentativo: Filosofía Moderna (Guía Nº 4)" required="" type="text" value="Ensayo Argumentativo: Filosofía Moderna"/>
+</div>
+<!-- 2. Materia y Código de Syllabus (Grid) -->
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-4">
+<!-- Materia -->
+<div class="sm:col-span-7 space-y-2">
+<label class="text-xs uppercase tracking-wider font-semibold text-slate-700 flex items-center gap-1" for="subject-select">
+<span>Materia / Cátedra</span>
+<span class="text-red-500">*</span>
+</label>
+<div class="relative">
+<select class="input-base w-full appearance-none bg-[#faf8f4] border border-[#d8d3c5] rounded-xl px-4 py-2.5 pr-10 text-slate-800 text-sm cursor-pointer focus:bg-white" id="subject-select" name="subject">
+<option selected="" value="filosofia">Filosofía Contemporánea</option>
+<option value="calculo">Matemáticas / Cálculo II</option>
+<option value="historia">Historia Moderna &amp; Universal</option>
+<option value="biologia">Ciencias / Biología Celular</option>
+<option value="espanol">Lengua Española y Literatura</option>
+<option value="fisica">Física III: Termodinámica</option>
+<option value="nueva">+ Añadir nueva materia...</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-lg">
+                    unfold_more
+                  </span>
+</div>
+</div>
+<!-- Código o Referencia Rápida -->
+<div class="sm:col-span-5 space-y-2">
+<label class="text-xs uppercase tracking-wider font-semibold text-slate-700 flex items-center gap-1" for="syllabus-code">
+<span>Ponderación / Unidad</span>
+</label>
+<input class="input-base w-full bg-[#faf8f4] border border-[#d8d3c5] rounded-xl px-4 py-2.5 text-slate-800 placeholder:text-slate-400 text-sm focus:bg-white" id="syllabus-code" name="syllabus_code" placeholder="Ej. MOD-III • 25%" type="text" value="Módulo III • 20% Final"/>
+</div>
+</div>
+<!-- 3. Tipo de Evento (Interactive Selector Chips) -->
+<div class="space-y-2.5">
+<div class="flex items-center justify-between">
+<label class="text-xs uppercase tracking-wider font-semibold text-slate-700 block">
+                  Tipo de evento académico
+                </label>
+<span class="text-[11px] text-slate-400">Selecciona uno</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="event-type-group">
+<!-- Chip Tarea (Active) -->
+<button class="event-type-chip group flex flex-col items-center justify-center p-3.5 rounded-xl border-2 border-astra-navy bg-astra-navy text-white text-center shadow-sm transition-all hover:shadow" data-type="tarea" type="button">
+<span class="material-symbols-outlined text-xl mb-1 text-white">edit_note</span>
+<span class="text-xs font-semibold tracking-tight">Tarea</span>
+</button>
+<!-- Chip Examen -->
+<button class="event-type-chip group flex flex-col items-center justify-center p-3.5 rounded-xl border border-[#ded9cb] bg-[#faf8f4] text-slate-700 text-center transition-all hover:bg-white hover:border-slate-400" data-type="examen" type="button">
+<span class="material-symbols-outlined text-xl mb-1 text-slate-500 group-hover:text-slate-800">school</span>
+<span class="text-xs font-medium">Examen</span>
+</button>
+<!-- Chip Proyecto -->
+<button class="event-type-chip group flex flex-col items-center justify-center p-3.5 rounded-xl border border-[#ded9cb] bg-[#faf8f4] text-slate-700 text-center transition-all hover:bg-white hover:border-slate-400" data-type="proyecto" type="button">
+<span class="material-symbols-outlined text-xl mb-1 text-slate-500 group-hover:text-slate-800">group_work</span>
+<span class="text-xs font-medium">Proyecto</span>
+</button>
+<!-- Chip Lectura -->
+<button class="event-type-chip group flex flex-col items-center justify-center p-3.5 rounded-xl border border-[#ded9cb] bg-[#faf8f4] text-slate-700 text-center transition-all hover:bg-white hover:border-slate-400" data-type="lectura" type="button">
+<span class="material-symbols-outlined text-xl mb-1 text-slate-500 group-hover:text-slate-800">menu_book</span>
+<span class="text-xs font-medium">Lectura / Otro</span>
+</button>
+</div>
+<input id="selected-event-type" name="event_type" type="hidden" value="tarea"/>
+</div>
+<!-- 4. Fecha y Hora de Vencimiento -->
+<div class="space-y-2">
+<label class="text-xs uppercase tracking-wider font-semibold text-slate-700 block">
+                Cronograma de entrega
+              </label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Date -->
+<div class="relative">
+<div class="absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+<span class="material-symbols-outlined text-lg">calendar_today</span>
+</div>
+<input class="input-base w-full bg-[#faf8f4] border border-[#d8d3c5] rounded-xl pl-11 pr-4 py-2.5 text-slate-800 text-sm font-medium focus:bg-white cursor-pointer" id="event-date" name="event_date" type="date" value="2026-10-12"/>
+</div>
+<!-- Time -->
+<div class="relative">
+<div class="absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+<span class="material-symbols-outlined text-lg">schedule</span>
+</div>
+<input class="input-base w-full bg-[#faf8f4] border border-[#d8d3c5] rounded-xl pl-11 pr-4 py-2.5 text-slate-800 text-sm font-medium focus:bg-white cursor-pointer" id="event-time" name="event_time" type="time" value="23:59"/>
+</div>
+</div>
+</div>
+<!-- 5. Notas, Rúbrica e Instrucciones -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="text-xs uppercase tracking-wider font-semibold text-slate-700" for="event-notes">
+                  Instrucciones &amp; Rúbrica de Entrega
+                </label>
+<span class="text-[11px] text-slate-500 font-medium bg-[#f0ecdf] px-2 py-0.5 rounded">Formato APA 7 / PDF</span>
+</div>
+<textarea class="input-base w-full bg-[#faf8f4] border border-[#d8d3c5] rounded-xl p-4 text-slate-800 placeholder:text-slate-400 text-sm focus:bg-white resize-y" id="event-notes" name="event_notes" placeholder="Detalles de la entrega: páginas a estudiar, criterios específicos de evaluación, preguntas guía o notas para el día del evento..." rows="4">Desarrollar análisis crítico sobre la dialéctica del Iluminismo según Adorno y Horkheimer. Mínimo 6 páginas, tipografía Times 12 con fuentes secundarias citadas.</textarea>
+</div>
+<!-- 6. Enlace de Recurso Externo -->
+<div class="space-y-2">
+<label class="text-xs uppercase tracking-wider font-semibold text-slate-700 flex items-center gap-1.5" for="resource-url">
+<span class="material-symbols-outlined text-sm text-slate-500">attachment</span>
+<span>Recurso digital o enlace a repositorio (opcional)</span>
+</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-lg pointer-events-none">link</span>
+<input class="input-base w-full bg-[#faf8f4] border border-[#d8d3c5] rounded-xl pl-11 pr-4 py-2.5 text-slate-800 placeholder:text-slate-400 text-sm focus:bg-white" id="resource-url" name="resource_url" placeholder="https://campus.universidad.edu/entregas/rubrica-2026.pdf" type="url" value="https://campus.universidad.edu/filosofia/rubrica-ensayo4.pdf"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Panel complementario con estilo editorial (32%) -->
+<div class="lg:col-span-4 space-y-5">
+<!-- Tarjeta 1: Configuración y Recordatorios -->
+<div class="bg-white rounded-2xl border border-[#e5e0d3] p-5 sm:p-6 shadow-sm space-y-5">
+<div class="border-b border-[#f1eee4] pb-3">
+<h2 class="font-serif text-lg font-medium text-slate-900 flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-slate-600">tune</span>
+              Configuración y Parámetros
+            </h2>
+<p class="text-xs text-slate-500 mt-0.5">Control de avisos y visualización en tu agenda.</p>
+</div>
+<div class="space-y-3.5">
+<!-- Priority Box -->
+<label class="flex items-start gap-3 p-3 rounded-xl border border-red-200/80 bg-red-50/40 hover:bg-red-50/70 transition-colors cursor-pointer select-none">
+<input class="mt-1 h-4 w-4 rounded border-red-300 text-red-600 focus:ring-red-400 cursor-pointer" id="priority-toggle" name="is_urgent" type="checkbox"/>
+<div class="flex-1">
+<div class="flex items-center gap-1.5">
+<span class="text-xs font-bold text-red-900 uppercase tracking-tight">Alta Prioridad</span>
+<span class="bg-red-100 text-red-700 text-[10px] font-semibold px-1.5 py-0.2 rounded uppercase">Crítico</span>
+</div>
+<p class="text-[11px] text-red-800/80 mt-0.5 leading-snug">
+                  Destaca con etiqueta roja en tu tablero de Tus eventos y activa advertencia de proximidad.
+                </p>
+</div>
+</label>
+<!-- Reminder 24h -->
+<label class="flex items-start gap-3 p-3 rounded-xl border border-[#e8e4d8] bg-[#faf8f4] hover:bg-[#f3efe4] transition-colors cursor-pointer select-none">
+<input checked="" class="mt-1 h-4 w-4 rounded border-slate-300 text-astra-navy focus:ring-astra-navy cursor-pointer" id="reminder-toggle" name="reminder_24h" type="checkbox"/>
+<div class="flex-1">
+<span class="text-xs font-semibold text-slate-800 block">Recordatorio 24h antes</span>
+<p class="text-[11px] text-slate-500 mt-0.5 leading-snug">
+                  Notificación previa para revisión final del documento.
+                </p>
+</div>
+</label>
+<!-- Study Block -->
+<label class="flex items-start gap-3 p-3 rounded-xl border border-[#e8e4d8] bg-[#faf8f4] hover:bg-[#f3efe4] transition-colors cursor-pointer select-none">
+<input checked="" class="mt-1 h-4 w-4 rounded border-slate-300 text-astra-navy focus:ring-astra-navy cursor-pointer" id="study-session-toggle" name="schedule_study" type="checkbox"/>
+<div class="flex-1">
+<span class="text-xs font-semibold text-slate-800 block">Bloque en "Sesiones de estudio"</span>
+<p class="text-[11px] text-slate-500 mt-0.5 leading-snug">
+                  Agenda automáticamente 90 min de concentración en la víspera.
+                </p>
+</div>
+</label>
+</div>
+</div>
+<!-- Tarjeta 2: Previsualización en Tiempo Real -->
+<div class="bg-white rounded-2xl border border-[#e5e0d3] p-5 sm:p-6 shadow-sm space-y-4">
+<div class="flex items-center justify-between border-b border-[#f1eee4] pb-3">
+<div class="flex items-center gap-1.5 text-xs uppercase tracking-wider font-semibold text-slate-700">
+<span class="material-symbols-outlined text-sm text-slate-500">preview</span>
+<span>Vista previa en tu lista</span>
+</div>
+<span class="text-[10px] bg-[#ece8dc] text-slate-600 font-semibold px-2 py-0.5 rounded-full">En Vivo</span>
+</div>
+<!-- Card Mockup mimicking 'Tus eventos' item -->
+<div class="border border-[#ded9cb] bg-[#fbf9f4] rounded-xl p-4 shadow-2xs space-y-2.5" id="event-live-preview">
+<div class="flex items-center justify-between gap-2">
+<span class="text-[10px] font-bold uppercase tracking-wider bg-slate-200/80 text-slate-700 px-2 py-0.5 rounded">
+                Filosofía Contemporánea
+              </span>
+<span class="text-[11px] text-slate-500 font-medium">12 Oct • 23:59</span>
+</div>
+<div>
+<h3 class="font-serif text-base font-semibold text-slate-900 leading-snug">
+                Ensayo Argumentativo: Filosofía Moderna
+              </h3>
+<p class="text-[11px] text-slate-500 line-clamp-1 mt-0.5">
+                Módulo III • 20% Final • Formato APA 7
+              </p>
+</div>
+<div class="pt-2 border-t border-[#eee9dc] flex items-center justify-between text-[11px]">
+<div class="flex items-center gap-1 text-slate-600">
+<span class="material-symbols-outlined text-xs">hourglass_top</span>
+<span>Entrega en 4 días</span>
+</div>
+<span class="inline-flex items-center gap-1 font-semibold text-slate-700">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                Tarea
+              </span>
+</div>
+</div>
+<!-- Micro Load Bar -->
+<div class="bg-[#faf8f4] border border-[#e8e4d8] rounded-xl p-3 space-y-1.5">
+<div class="flex justify-between items-center text-xs">
+<span class="font-medium text-slate-600">Carga del día (12 Oct)</span>
+<span class="font-semibold text-slate-800">Moderada (40%)</span>
+</div>
+<div class="w-full bg-[#e8e3d5] h-1.5 rounded-full overflow-hidden">
+<div class="bg-slate-700 h-full rounded-full w-2/5"></div>
+</div>
+<p class="text-[11px] text-slate-500">1 compromiso previo programado en esta fecha.</p>
+</div>
+</div>
+<!-- Action Buttons Section -->
+<div class="bg-white rounded-2xl border border-[#e5e0d3] p-5 shadow-sm space-y-3">
+<button class="w-full py-3 px-4 bg-astra-navy hover:bg-astra-navy-hover active:scale-[0.99] text-white font-semibold text-sm rounded-xl shadow transition-all flex items-center justify-center gap-2 cursor-pointer" id="submit-btn" type="submit">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+<span>Guardar nuevo evento</span>
+</button>
+<a class="w-full py-2.5 px-4 bg-[#f8f5ee] hover:bg-[#ede8dc] text-slate-700 hover:text-slate-900 font-medium text-xs rounded-xl transition-all flex items-center justify-center gap-1.5 border border-[#ded9cb]" href="#eventos">
+<span class="material-symbols-outlined text-sm">close</span>
+<span>Descartar y volver</span>
+</a>
+</div>
+<!-- Academic Quote / Stationery Motif -->
+<div class="p-4 rounded-2xl border border-[#e2ddd0] bg-[#f5f1e6] text-center space-y-1.5">
+<span class="material-symbols-outlined text-slate-400 text-lg">format_quote</span>
+<p class="font-serif italic text-sm text-slate-800 leading-snug">
+            "La diligencia es la madre de la buena ventura, y la pereza su contraria."
+          </p>
+<p class="text-[11px] uppercase tracking-wider text-slate-500 font-medium">— Miguel de Cervantes</p>
+</div>
+</div>
+</form>
+</div>
+</main>
+<!-- END: MainContent -->
+<!-- Interactive Logic for Event Type Selector -->
+<script>
+  (function() {
+    const chips = document.querySelectorAll('.event-type-chip');
+    const hiddenInput = document.getElementById('selected-event-type');
+
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        // Deselect all
+        chips.forEach(c => {
+          c.classList.remove('bg-astra-navy', 'text-white', 'border-2', 'border-astra-navy', 'shadow-sm');
+          c.classList.add('bg-[#faf8f4]', 'text-slate-700', 'border', 'border-[#ded9cb]');
+          const icon = c.querySelector('.material-symbols-outlined');
+          if (icon) {
+            icon.classList.remove('text-white');
+            icon.classList.add('text-slate-500');
+          }
+        });
+
+        // Select current
+        chip.classList.remove('bg-[#faf8f4]', 'text-slate-700', 'border-[#ded9cb]');
+        chip.classList.add('bg-astra-navy', 'text-white', 'border-2', 'border-astra-navy', 'shadow-sm');
+        const activeIcon = chip.querySelector('.material-symbols-outlined');
+        if (activeIcon) {
+          activeIcon.classList.remove('text-slate-500');
+          activeIcon.classList.add('text-white');
+        }
+
+        // Update hidden input
+        if (hiddenInput) {
+          hiddenInput.value = chip.dataset.type;
+        }
+      });
+    });
+  })();
+</script>
+</body></html>
